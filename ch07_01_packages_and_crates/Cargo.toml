@@ -1,5 +1,5 @@
 [package]
-name = "ch03_02_funciones"
+name = "ch07_01_packages_and_crates"
 version = "0.1.0"
 edition = "2021"
 
