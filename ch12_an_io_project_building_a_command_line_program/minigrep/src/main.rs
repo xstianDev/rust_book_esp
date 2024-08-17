@@ -1,3 +1,14 @@
+//////////////////////////////
+// 12.1. Minigrep
+// https://doc.rust-lang.org/stable/book/ch12-00-an-io-project.html
+// https://doc.rust-lang.org/stable/book/ch12-01-accepting-command-line-arguments.html
+// https://doc.rust-lang.org/stable/book/ch12-02-reading-a-file.html
+// https://doc.rust-lang.org/stable/book/ch12-03-improving-error-handling-and-modularity.html
+// https://doc.rust-lang.org/stable/book/ch12-04-testing-the-librarys-functionality.html
+// https://doc.rust-lang.org/stable/book/ch12-05-working-with-environment-variables.html
+// https://doc.rust-lang.org/stable/book/ch12-06-writing-to-stderr-instead-of-stdout.html
+//////////////////////////////
+
 use std::env;
 use std::process;
 

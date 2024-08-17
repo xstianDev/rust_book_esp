@@ -14,6 +14,12 @@ Devuelve un iterador sobre los valores.
 `get<I>(&self, index: I) -> Option<&I::Output>`\
 Devuelve el valor del índice como `Some` o `None` si no existe.
 
+`iter(&self) -> Iter<'_, T>`\
+Devuelve un iterador (itera sobre &mut T).
+
+`iter_mut(&mut self) -> IterMut<'_, T>`\
+Devuelve un iterador que permite modificar los valores (itera sobre &mut T).
+
 
 #   crate   std
 
@@ -66,19 +72,57 @@ Devuelve una referencia compartida al buffer global `Stdin`.
 `Stdin::read_line(&self, buf: &mut String) -> io::Result<usize>`\
 Añade contenido al buffer sin tomar ownership.\
 Devuelve una enumeración `Result<T, E>`:
-- `Ok(T)`  contiene el valor de éxito.
-- `Err(E)` contiene el valor de error.
+- `Ok(T)`  valor de éxito.
+- `Err(E)` valor de error.
 
 
 ##  module  std::iter
 `std::iter(&self) -> Iter<'_, T>`\
 Devuelve el objeto iterador actual de tipo `Iter<'_, T>`:
-- `'_` tiempo de vida del iterable (muere cuando acaba el bucle).
-- `T` tipo del elemento.
+- `'_` lifetime del iterable.
+- `T`  tipo del elemento.
+
+
+`into_iter(self) -> Self::IntoIter`\
+Crea un iterador a partir de un valor (itera sobre T).
+
 
 ### trait   std::iter::Iterator
+`collect<B>(self) -> B
+where
+    B: FromIterator<Self::Item>,
+    Self: Sized,`\
+Transforma un iterador en una colección.
+
 `enumerate(self) -> Enumerate<Self>`\
 Crea un iterador que da el número de iteración actual y el siguiente valor.
+
+`filter<P>(self, predicate: P) -> Filter<Self, P>
+where
+    Self: Sized,
+    P: FnMut(&Self::Item) -> bool,`\
+Crea un iterator que llama al closure `predicate`.\
+Si devuelve `true` la función devolverá el valor.
+
+`map<B, F>(self, f: F) -> Map<Self, F>
+where
+    Self: Sized,
+    F: FnMut(Self::Item) -> B,
+{
+    Map::new(self, f)
+}`\
+Crea un iterator que llama al closure `f` en cada iteración.
+
+`skip(self, n: usize) -> Skip<Self>
+where
+    Self: Sized,`\
+Crea un iterator que salta los primeros `n` elementos.
+
+`zip<U>(self, other: U) -> Zip<Self, U::IntoIter>
+where
+    Self: Sized,
+    U: IntoIterator,`\
+Convierte los argumentos en un iterador con pares de valores.
 
 
 ##  module  std::option
