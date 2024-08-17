@@ -1,5 +1,5 @@
-# Ignora el directorio .vscode
+# vscode
 .vscode
 
-# Ignora el directorio target y sus contenidos
-**/target
+# Rust
+**/target/
