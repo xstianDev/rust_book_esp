@@ -43,6 +43,19 @@ Asegura que haya un valor en la entrada e introduce uno por defecto si está vac
 Devuelve el valor de la entrada.
 
 
+##  module std::str
+
+### struct std::str::Split
+`Split<'a, P>(/* private fields */) where P: Pattern<'a>`\
+Un objeto iterador con el contenido de la separación del string.
+
+
+##  module std::string
+
+### struct std::string::String
+`split<'a, P>(&'a self, pat: P) -> Split<'a, P> where P: Pattern<'a>,`\
+Devuelve un objeto `Split` con los contenidos del string separados por `pat`.
+
 
 ##  module  std::io
 `io::stdin() -> Stdin`\
