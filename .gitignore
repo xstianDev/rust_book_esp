@@ -1,0 +1,5 @@
+# Ignora el directorio .vscode
+.vscode
+
+# Ignora el directorio target y sus contenidos
+**/target
