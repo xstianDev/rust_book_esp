@@ -1,7 +1,5 @@
 //////////////////////////////
 // 7.2. Modules
-// https://doc.rust-lang.org/stable/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html
-// https://doc.rust-lang.org/stable/book/ch07-01-packages-and-crates.html
 // https://doc.rust-lang.org/stable/book/ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html
 //////////////////////////////
 

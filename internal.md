@@ -5,6 +5,15 @@
 Compara la referencia de sí mismo con la de otro valor.\
 Devuelve una enumeración `Ordering`.
 
+##  module  core::str
+`split_whitespace(&self) -> SplitWhitespace<'_>`\
+Divide un `string slice` donde haya espacios.\
+Devuelve un iterador sobre los valores.
+
+##  module  core::slice
+`get<I>(&self, index: I) -> Option<&I::Output>`\
+Devuelve el valor del índice como `Some` o `None` si no existe.
+
 
 #   crate   std
 
@@ -16,6 +25,23 @@ Devuelve una enumeración `Ordering`.
 `Ordering::Greater` un valor comparado es mayor que otro.
 
 `Ordering::Equal` un valor comparado es igual que otro.
+
+
+##  module  std::collections::hash_map
+
+### struct  std::collections::hash_map::HashMap
+`entry(&mut self, key: K) -> Entry<'_, K, V>`\
+Obtiene la entrada correspondiente a la clave `key`.
+
+`insert(&mut self, k: K, v: V) -> Option<V>`\
+Introduce la `key` con el `value` asociado dentro del `HashMap`.
+
+
+### enum    std::collections::hash_map::Entry
+`or_insert(self, default: V) -> &'a mut V`\
+Asegura que haya un valor en la entrada e introduce uno por defecto si está vacía.\
+Devuelve el valor de la entrada.
+
 
 
 ##  module  std::io
@@ -61,9 +87,12 @@ Si `T` es `Ok`, devuelve el valor contenido en `OK`.\
 Si `T` es `Err`, muestra un mensaje y el contenido de `Err`.
 
 
-##  module  std::string
 
-### struct  std::string::String
+#   crate   alloc
+
+##  module  alloc::string
+
+### struct  alloc::string::String
 `String::new()`\
 Crea un `String` vacío.
 
@@ -87,8 +116,27 @@ Devuelve la longitud del `String`.
 Convierte el `String` a otro tipo de dato que hay que indicar.\
 Devuelve un `Result<T, E>`.
 
+`push(&mut self, ch: char)`\
+Añade un carácter al final del `String`.
+
 `push_str(&mut self, string: &str)`\
 Añade un substring al final del `String`.
 
 `trim(&self) -> &str`\
 Quita los espacios al comienzo y al final del string.
+
+
+##  module  alloc::vec
+
+### struct  alloc::vec::Vec
+`Vec<T, A = Global>`
+Struct que define un vector.
+
+`Vec::new()`
+Crea un vector vacío con el tipo especificado.
+
+`get<I>(&self, index: I) -> Option<&<I as SliceIndex<[T]>>::Output>`\
+Devuelve la referencia al elemento del índice indicado o `None` si no existe.
+
+`push(&mut self, value: T)`\
+Añade un elemento al final del vector.

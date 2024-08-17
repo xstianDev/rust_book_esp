@@ -17,3 +17,10 @@ Se usa en cadena con otros métodos.
 `Rng.gen_range(&mut self, low: T, high: T) -> T`\
 Devuelve un valor aleatorio entre dos números de tipo `T`.\
 En la generación incluye `low` pero excluye `min`.
+
+
+#  crate    unicode_segmentation
+
+## trait    unicode_segmentation::UnicodeSegmentation
+`graphemes<'a>(&'a self, is_extended: bool) -> Graphemes<'a>`\
+Itera los grapheme clusters de una cadena de texto.

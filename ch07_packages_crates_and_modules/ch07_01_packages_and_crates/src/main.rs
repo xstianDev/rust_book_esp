@@ -1,6 +1,7 @@
 //////////////////////////////
-// 7.4. Module Separation
-// https://doc.rust-lang.org/stable/book/ch07-05-separating-modules-into-different-files.html
+// 7.1. Packages && Crates
+// https://doc.rust-lang.org/stable/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html
+// https://doc.rust-lang.org/stable/book/ch07-01-packages-and-crates.html
 //////////////////////////////
 
 /* Packages: característica de Cargo. Permite construir, testear y compartir crates.
