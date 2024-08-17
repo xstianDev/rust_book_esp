@@ -21,7 +21,24 @@ Devuelve un iterador (itera sobre &mut T).
 Devuelve un iterador que permite modificar los valores (itera sobre &mut T).
 
 
+
 #   crate   std
+
+##  module  std::cell
+
+##  struct  std::cell::RefCell
+`borrow(&self) -> Ref<'_, T>
+where
+    T: ?Sized,`\
+Hace borrow inmutable del valor que envuelve hasta que acaba el scope.\
+Varios borrows inmutables se pueden hacer a la vez.
+
+`borrow_mut(&self) -> RefMut<'_, T>
+where
+    T: ?Sized,`\
+Hace borrow mutable del valor que envuelve hasta que acaba el scope.\
+No se puede hacer borrow del valor si ya hay un borrow activo.
+
 
 ##  module  std::cmp
 
@@ -41,7 +58,6 @@ Obtiene la entrada correspondiente a la clave `key`.
 
 `insert(&mut self, k: K, v: V) -> Option<V>`\
 Introduce la `key` con el `value` asociado dentro del `HashMap`.
-
 
 ### enum    std::collections::hash_map::Entry
 `or_insert(self, default: V) -> &'a mut V`\
@@ -82,10 +98,8 @@ Devuelve el objeto iterador actual de tipo `Iter<'_, T>`:
 - `'_` lifetime del iterable.
 - `T`  tipo del elemento.
 
-
 `into_iter(self) -> Self::IntoIter`\
 Crea un iterador a partir de un valor (itera sobre T).
-
 
 ### trait   std::iter::Iterator
 `collect<B>(self) -> B
@@ -125,6 +139,11 @@ where
 Convierte los argumentos en un iterador con pares de valores.
 
 
+##  module  std::mem
+`drop<T>(_x: T)`\
+Elimina un valor que implementa el trait `Drop`.
+
+
 ##  module  std::option
 
 ### enum    std::option::Option
@@ -134,6 +153,32 @@ Convierte los argumentos en un iterador con pares de valores.
 
 `unwrap_or(self, default: T) -> T`\
 Devuelve el valor de `T` o un valor por defecto.
+
+
+##  module  std::rc
+
+### struct  std::rc::Rc
+`clone(&self) -> Rc<T, A>`\ 
+Clona el puntero `Rc`. Crea otro puntero con las asignaciones, incrementando el número de referencias.
+
+`downgrade(this: &Rc<T, A>) -> Weak<T, A>
+where
+    A: Clone,
+`\
+Crea un puntero `Weak` donde está alojado `this`.
+
+`strong_count(&self) -> usize`\
+Devuelve el número de punteros `Rc` que apuntan a esta asignación.
+
+`weak_count(&self) -> usize`
+Devuelve el número de punteros `Weak` que apuntan a esta asignación.
+
+### struct  std::rc::Weak
+`upgrade(&self) -> Option<Rc<T, A>>
+where
+    A: Clone,`\
+Intenta mejorar el puntero `Weak` a `Rc`, retrasando que se borre el valor si hay éxito.
+Devuelve `None` si el valor interno se ha borrado.
 
 
 ##  module  std::result
